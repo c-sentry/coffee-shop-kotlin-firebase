@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "790468790443",
+    "project_id": "coffee-shop-kotlin-c309d",
+    "storage_bucket": "coffee-shop-kotlin-c309d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790468790443:android:ef105501e0cebae4414fee",
+        "android_client_info": {
+          "package_name": "com.example.coffee_shop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpCNDqQValQIaTS7fG3-KtpBuUy6ITux0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
