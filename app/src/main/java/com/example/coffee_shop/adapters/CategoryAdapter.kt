@@ -46,7 +46,7 @@ class CategoryAdapter(val items: MutableList<CategoryModel>) :
         if (selectedPosition == position) {
             holder.binding.titleCat.setBackgroundResource(R.drawable.brown_circle)
         } else {
-            holder.binding.titleCat.setBackgroundResource(R.drawable.brown_2_circule)
+            holder.binding.titleCat.setBackgroundResource(R.drawable.brown_2_circle)
         }
     }
 

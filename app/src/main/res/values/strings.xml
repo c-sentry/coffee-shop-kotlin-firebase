@@ -9,4 +9,10 @@
     <string name="_0">$0</string>
     <string name="subtitle">subtitle</string>
     <string name="textview">TextView</string>
+    <string name="explorer">Explorer</string>
+    <string name="category">Category</string>
+    <string name="favorite">Favorite</string>
+    <string name="cart">Cart</string>
+    <string name="my_order">My Order</string>
+    <string name="profile">Profile</string>
 </resources>
