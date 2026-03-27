@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">coffee-shop</string>
     <string name="coffee_shop">Coffee \nShop</string>
+    <string name="saied_rahimi">Saied Rahimi</string>
+    <string name="search_anything">Search anything</string>
+    <string name="todo">TODO</string>
 </resources>
