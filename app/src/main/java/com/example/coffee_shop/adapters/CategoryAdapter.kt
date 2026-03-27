@@ -1,5 +1,8 @@
+
+
 package com.example.coffee_shop.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
@@ -9,45 +12,45 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.coffee_shop.R
 import com.example.coffee_shop.databinding.ViewholderCategoryBinding
 import com.example.coffee_shop.domin.CategoryModel
-import com.google.firebase.database.Transaction
 
-class CategoryAdapter(val items: MutableList<CategoryModel>):
+class CategoryAdapter(val items: MutableList<CategoryModel>) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
-        private lateinit var context: Context
-        private var selectedPosition  = -1
-        private var lastPosition = -1
+    private lateinit var context: Context
+    private var selectedPosition = -1
+    private var lastPosition = -1
 
-    class ViewHolder(val binding: ViewholderCategoryBinding):
-    RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: ViewholderCategoryBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CategoryAdapter.ViewHolder {
+    ): ViewHolder {
         context = parent.context
         val binding = ViewholderCategoryBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CategoryAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val item = items[position]
         holder.binding.titleCat.text = item.title
         holder.binding.root.setOnClickListener {
             lastPosition = selectedPosition
-            selectedPosition=position
+            selectedPosition = position
             notifyItemChanged(lastPosition)
             notifyItemChanged(selectedPosition)
             Handler(Looper.getMainLooper()).postDelayed({
 
             }, 500)
         }
-if(selectedPosition == position){
-   holder.binding.titleCat.setBackgroundResource(R.drawable.brown_circle)
-}else{
-    holder.binding.titleCat.setBackgroundResource(R.drawable.brown_2_circule)
-}
+        if (selectedPosition == position) {
+            holder.binding.titleCat.setBackgroundResource(R.drawable.brown_circle)
+        } else {
+            holder.binding.titleCat.setBackgroundResource(R.drawable.brown_2_circule)
+        }
     }
 
     override fun getItemCount(): Int = items.size
 
 }
+

@@ -4,4 +4,9 @@
     <string name="saied_rahimi">Saied Rahimi</string>
     <string name="search_anything">Search anything</string>
     <string name="todo">TODO</string>
+    <string name="see_all">See all</string>
+    <string name="popular_coffees">Popular Coffees</string>
+    <string name="_0">$0</string>
+    <string name="subtitle">subtitle</string>
+    <string name="textview">TextView</string>
 </resources>

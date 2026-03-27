@@ -1,30 +1,27 @@
 package com.example.coffee_shop.activities
 
-import android.R.attr.category
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.coffee_shop.R
 import com.example.coffee_shop.adapters.CategoryAdapter
+import com.example.coffee_shop.adapters.PopularAdapter
 import com.example.coffee_shop.databinding.ActivityMainBinding
-import com.example.coffee_shop.databinding.ActivitySplashBinding
 import com.example.coffee_shop.viewModel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
-    private  lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private val viewModel = MainViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-       initBanner()
+        initBanner()
         initCategory()
+        initPopular()
     }
 
     private fun initCategory() {
@@ -32,8 +29,9 @@ class MainActivity : AppCompatActivity() {
             progressBarCategory.visibility = View.VISIBLE
             viewModel.loadCategory().observeForever {
                 categoryView.adapter = CategoryAdapter(it)
-                categoryView.layoutManager= LinearLayoutManager(this@MainActivity,
-                    LinearLayoutManager.HORIZONTAL,false)
+                categoryView.layoutManager = LinearLayoutManager(
+                    this@MainActivity, LinearLayoutManager.HORIZONTAL, false
+                )
                 progressBarCategory.visibility = View.GONE
 
             }
@@ -42,14 +40,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun initPopular() {
+        binding.apply {
+            progressBarPopular.visibility = View.VISIBLE
+            viewModel.loadPopular().observeForever {
+                papularView.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+                papularView.adapter = PopularAdapter(it)
+                progressBarPopular.visibility = View.GONE
+            }
+            viewModel.loadPopular()
+        }
+    }
+
     private fun initBanner() {
         binding.apply {
-            progressBarBanner.visibility= View.VISIBLE
+            progressBarBanner.visibility = View.VISIBLE
             viewModel.loadBanner().observeForever {
                 Glide.with(this@MainActivity).load(it[0].url).into(banner)
-             progressBarBanner.visibility = View.GONE
+                progressBarBanner.visibility = View.GONE
             }
             viewModel.loadBanner()
         }
     }
+
+
 }
